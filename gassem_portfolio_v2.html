@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gassem Al Salama — Senior IT Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#d4af37; --gold-light:#f5d97a; --gold-dark:#a07c10;
+  --blue:#4fa3f7; --blue-mid:#1a6fc4;
+  --bg:#050a18; --bg-dark:#080f22; --bg-card:#0c1530; --bg-card2:#0a1228;
+  --border:rgba(100,140,255,0.12); --border-gold:rgba(212,175,55,0.25);
+  --text:rgba(225,235,255,0.95); --text2:rgba(170,190,230,0.7); --text3:rgba(130,155,200,0.5);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Exo 2',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 900px 600px at 15% 10%,rgba(0,60,180,0.09) 0%,transparent 70%),radial-gradient(ellipse 600px 400px at 85% 85%,rgba(0,100,60,0.05) 0%,transparent 60%),radial-gradient(ellipse 400px 300px at 50% 50%,rgba(212,175,55,0.03) 0%,transparent 60%);pointer-events:none;z-index:0;}
+
+/* PARTICLES */
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.particle{position:absolute;width:2px;height:2px;border-radius:50%;background:rgba(212,175,55,0.35);animation:floatP linear infinite;}
+@keyframes floatP{0%{transform:translateY(100vh);opacity:0;}10%{opacity:1;}90%{opacity:0.2;}100%{transform:translateY(-10vh) translateX(20px);opacity:0;}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(5,10,24,0.9);backdrop-filter:blur(18px);border-bottom:1px solid var(--border-gold);padding:0 52px;height:58px;display:flex;align-items:center;justify-content:space-between;}
+.nav-brand{font-family:'Cinzel',serif;font-size:17px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:3px;}
+.nav-links{display:flex;gap:26px;list-style:none;}
+.nav-links a{text-decoration:none;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+
+/* LAYOUT */
+main{position:relative;z-index:1;padding-top:58px;}
+.wrap{max-width:1260px;margin:0 auto;padding:80px 52px;}
+.wrap-sm{max-width:1260px;margin:0 auto;padding:60px 52px;}
+.bg-alt{background:linear-gradient(180deg,transparent,rgba(8,15,34,0.55) 20%,rgba(8,15,34,0.55) 80%,transparent);}
+
+/* DIVIDER */
+.divider{display:flex;align-items:center;gap:14px;margin-bottom:44px;}
+.divider .ln{flex:1;height:1px;background:linear-gradient(to right,rgba(212,175,55,0.5),transparent);}
+.divider .ln.r{background:linear-gradient(to left,rgba(212,175,55,0.5),transparent);}
+.divider .diam{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
+.divider h2{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;color:var(--gold);text-transform:uppercase;white-space:nowrap;}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;max-width:1260px;margin:0 auto;padding:80px 52px 40px;position:relative;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;width:100%;}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.eyebrow-line{width:38px;height:1px;background:var(--gold);}
+.eyebrow-txt{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}
+.hero-name{font-family:'Cinzel',serif;font-weight:900;line-height:.95;margin-bottom:6px;}
+.hero-name span{font-size:62px;background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--gold-dark),#e8c84a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;}
+.hero-role{display:flex;align-items:center;gap:10px;margin:14px 0 8px;}
+.role-dash{width:28px;height:2px;background:var(--gold);}
+.role-txt{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;letter-spacing:4px;color:var(--text);text-transform:uppercase;}
+.hero-tagline{font-size:13px;color:var(--text2);line-height:1.7;max-width:460px;margin-bottom:8px;}
+.hero-contact-row{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 24px;}
+.hc-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text3);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.5px;}
+.hc-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.hero-stats{display:flex;gap:18px;margin-bottom:28px;}
+.h-stat{text-align:center;padding:12px 18px;border-radius:10px;border:1px solid var(--border-gold);background:rgba(212,175,55,0.04);}
+.h-stat-n{font-family:'Cinzel',serif;font-size:26px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.h-stat-l{font-size:9px;color:var(--text3);letter-spacing:1.5px;font-family:'Rajdhani',sans-serif;font-weight:600;text-transform:uppercase;}
+.hero-cta{display:flex;gap:12px;}
+.btn-p{padding:11px 26px;border-radius:8px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#050a18;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;transition:all .25s;}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,175,55,0.3);}
+.btn-o{padding:11px 26px;border-radius:8px;background:transparent;color:var(--gold);font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--border-gold);cursor:pointer;text-decoration:none;transition:all .25s;}
+.btn-o:hover{background:rgba(212,175,55,0.08);border-color:var(--gold);}
+
+/* HERO RIGHT */
+.hero-right{display:flex;flex-direction:column;gap:14px;}
+.tech-box{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;overflow:hidden;}
+.tech-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 300px 200px at 70% 30%,rgba(0,80,200,0.09),transparent);}
+.tech-lbl{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:3px;color:var(--text3);text-transform:uppercase;margin-bottom:14px;}
+.tech-wrap{display:flex;flex-wrap:wrap;gap:7px;}
+.tb{display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:5px;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;border:1px solid;}
+.tb-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.c-azure{color:#5ba4f5;border-color:rgba(91,164,245,.3);background:rgba(91,164,245,.06);}
+.c-aws{color:#ff9a00;border-color:rgba(255,154,0,.3);background:rgba(255,154,0,.06);}
+.c-cisco{color:#1ba0d7;border-color:rgba(27,160,215,.3);background:rgba(27,160,215,.06);}
+.c-win{color:#00adef;border-color:rgba(0,173,239,.3);background:rgba(0,173,239,.06);}
+.c-vmw{color:#7a9fd4;border-color:rgba(122,159,212,.3);background:rgba(122,159,212,.06);}
+.c-pbi{color:#f2c811;border-color:rgba(242,200,17,.3);background:rgba(242,200,17,.06);}
+.c-veeam{color:#00b336;border-color:rgba(0,179,54,.3);background:rgba(0,179,54,.06);}
+.c-gold{color:var(--gold);border-color:var(--border-gold);background:rgba(212,175,55,.06);}
+.c-sec{color:#d85a30;border-color:rgba(216,90,48,.3);background:rgba(216,90,48,.06);}
+.c-itsm{color:#7f77dd;border-color:rgba(127,119,221,.3);background:rgba(127,119,221,.06);}
+
+.award-row{display:flex;gap:12px;}
+.award-card{flex:1;display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border-gold);border-radius:12px;}
+.aw-icon{font-size:28px;flex-shrink:0;}
+.aw-label{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:2px;}
+.aw-title{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;color:var(--text);line-height:1.2;}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start;}
+.about-text p{color:var(--text2);margin-bottom:14px;line-height:1.8;font-size:14px;}
+.info-stack{display:flex;flex-direction:column;gap:10px;}
+.info-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:13px 16px;display:flex;align-items:center;gap:12px;}
+.ic-icon{width:34px;height:34px;border-radius:8px;background:rgba(212,175,55,0.08);border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.ic-lbl{font-size:9px;color:var(--text3);font-family:'Rajdhani',sans-serif;letter-spacing:1.5px;text-transform:uppercase;}
+.ic-val{font-size:13px;font-weight:600;color:var(--text);margin-top:1px;}
+
+/* ── EXPERIENCE ── */
+.timeline{position:relative;padding-left:30px;}
+.timeline::before{content:'';position:absolute;left:9px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(212,175,55,0.05));}
+.tl-item{position:relative;margin-bottom:22px;padding:20px 22px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;transition:border-color .2s;}
+.tl-item:hover{border-color:var(--border-gold);}
+.tl-item::before{content:'';position:absolute;left:-25px;top:20px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);box-shadow:0 0 0 3px rgba(212,175,55,.2);}
+.tl-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;flex-wrap:wrap;gap:6px;}
+.tl-role{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--text);}
+.tl-period{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--gold);background:rgba(212,175,55,0.08);border:1px solid var(--border-gold);padding:2px 10px;border-radius:20px;white-space:nowrap;}
+.tl-company{font-size:12px;color:var(--text3);margin-bottom:10px;}
+.tl-bullets{display:flex;flex-direction:column;gap:5px;}
+.tl-bullet{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--text2);}
+.tl-bdot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px;}
+.tl-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+.tl-tag{padding:2px 8px;border-radius:4px;font-size:10px;font-family:'Rajdhani',sans-serif;font-weight:600;background:rgba(100,140,255,0.06);border:1px solid var(--border);color:var(--text2);}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.sk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:13px;padding:20px;position:relative;overflow:hidden;}
+.sk-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:13px 13px 0 0;}
+.sk-cloud::before{background:linear-gradient(to right,#1a6fc4,#5ba4f5);}
+.sk-net::before{background:linear-gradient(to right,#0f6e56,#1d9e75);}
+.sk-sys::before{background:linear-gradient(to right,#534ab7,#7f77dd);}
+.sk-data::before{background:linear-gradient(to right,#ba7517,#ef9f27);}
+.sk-sec::before{background:linear-gradient(to right,#993c1d,#d85a30);}
+.sk-lead::before{background:linear-gradient(to right,var(--gold-dark),var(--gold));}
+.sk-title{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:13px;}
+.sk-cloud .sk-title{color:#5ba4f5;} .sk-net .sk-title{color:#1d9e75;} .sk-sys .sk-title{color:#7f77dd;} .sk-data .sk-title{color:#ef9f27;} .sk-sec .sk-title{color:#d85a30;} .sk-lead .sk-title{color:var(--gold);}
+.bar-wrap{margin-bottom:9px;}
+.bar-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--text2);margin-bottom:4px;font-family:'Rajdhani',sans-serif;font-weight:600;}
+.bar-bg{height:4px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:3px;animation:growBar 1.6s ease-out forwards;}
+@keyframes growBar{from{width:0 !important;}}
+.sk-cloud .bar-fill{background:linear-gradient(to right,#1a6fc4,#5ba4f5);}
+.sk-net .bar-fill{background:linear-gradient(to right,#0f6e56,#1d9e75);}
+.sk-sys .bar-fill{background:linear-gradient(to right,#534ab7,#7f77dd);}
+.sk-data .bar-fill{background:linear-gradient(to right,#ba7517,#ef9f27);}
+.sk-sec .bar-fill{background:linear-gradient(to right,#993c1d,#d85a30);}
+.sk-lead .bar-fill{background:linear-gradient(to right,var(--gold-dark),var(--gold));}
+
+/* ── CERTIFICATIONS ── */
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.cert-card{background:var(--bg-card);border:1px solid var(--border);border-radius:13px;padding:18px;position:relative;overflow:hidden;transition:transform .25s,border-color .25s;}
+.cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:13px 13px 0 0;}
+.cert-card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.3);}
+.cc-gold::before{background:linear-gradient(to right,var(--gold-dark),var(--gold-light),var(--gold-dark));}
+.cc-blue::before{background:linear-gradient(to right,#1a6fc4,#5ba4f5,#1a6fc4);}
+.cc-red::before{background:linear-gradient(to right,#993c1d,#d85a30,#993c1d);}
+.cc-teal::before{background:linear-gradient(to right,#0f6e56,#1d9e75,#0f6e56);}
+.cc-purple::before{background:linear-gradient(to right,#534ab7,#7f77dd,#534ab7);}
+.cc-azure::before{background:linear-gradient(to right,#0078d4,#50a0f0,#0078d4);}
+.cert-head{display:flex;align-items:flex-start;gap:11px;margin-bottom:11px;}
+.cert-logo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;flex-shrink:0;letter-spacing:-.5px;}
+.cl-cisco{background:#1ba0d7;color:#fff;}
+.cl-comptia{background:#c8202f;color:#fff;font-size:9px;}
+.cl-atlassian{background:#0052cc;color:#fff;font-size:19px;}
+.cl-linkedin{background:#0a66c2;color:#fff;font-size:12px;}
+.cl-ms{background:#0078d4;color:#fff;font-size:9px;letter-spacing:0px;}
+.cert-issuer{font-size:9px;font-family:'Rajdhani',sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:3px;}
+.cert-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;color:var(--text);line-height:1.25;}
+.cert-date{font-size:10px;color:var(--text3);margin-bottom:9px;font-family:'Rajdhani',sans-serif;}
+.cert-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.cert-tag{padding:2px 8px;border-radius:9px;font-size:9px;font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.5px;border:1px solid;}
+.ct-gold{color:rgba(212,175,55,.9);border-color:rgba(212,175,55,.25);background:rgba(212,175,55,.06);}
+.ct-blue{color:rgba(91,164,245,.9);border-color:rgba(91,164,245,.25);background:rgba(91,164,245,.06);}
+.ct-red{color:rgba(216,90,48,.9);border-color:rgba(216,90,48,.25);background:rgba(216,90,48,.06);}
+.ct-teal{color:rgba(29,158,117,.9);border-color:rgba(29,158,117,.25);background:rgba(29,158,117,.06);}
+.ct-purple{color:rgba(127,119,221,.9);border-color:rgba(127,119,221,.25);background:rgba(127,119,221,.06);}
+.ct-azure{color:rgba(80,160,240,.9);border-color:rgba(80,160,240,.25);background:rgba(80,160,240,.06);}
+.certs-summary{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(212,175,55,0.02));border:1px solid var(--border-gold) !important;}
+.big-n{font-family:'Cinzel',serif;font-size:46px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.big-l{font-family:'Rajdhani',sans-serif;font-size:10px;letter-spacing:2.5px;color:rgba(212,175,55,.6);margin:4px 0 12px;text-transform:uppercase;}
+.big-s{font-size:12px;color:var(--text2);line-height:1.5;max-width:150px;margin-bottom:12px;}
+
+/* ── PROJECTS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.proj-card{background:var(--bg-card);border:1px solid var(--border);border-radius:15px;padding:24px;position:relative;overflow:hidden;transition:transform .25s,border-color .25s;}
+.proj-card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.3);}
+.proj-num{position:absolute;top:18px;right:22px;font-family:'Cinzel',serif;font-size:40px;font-weight:900;color:rgba(212,175,55,0.055);line-height:1;}
+.proj-icon{width:42px;height:42px;border-radius:10px;border:1px solid var(--border-gold);background:rgba(212,175,55,0.07);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:12px;}
+.proj-title{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:var(--text);margin-bottom:10px;}
+.proj-desc{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:12px;}
+.proj-results{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.pr-item{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--text2);}
+.pr-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.proj-tag{padding:2px 9px;border-radius:4px;font-size:10px;font-family:'Rajdhani',sans-serif;font-weight:600;background:rgba(100,140,255,0.06);border:1px solid var(--border);color:var(--text2);}
+
+/* ── ACHIEVEMENTS ── */
+.ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px;}
+.ach-card{background:var(--bg-card);border:1px solid var(--border);border-radius:13px;padding:22px 18px;text-align:center;position:relative;overflow:hidden;transition:transform .25s;}
+.ach-card:hover{transform:translateY(-3px);}
+.ach-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;}
+.a-gold::after{background:linear-gradient(to right,var(--gold-dark),var(--gold));}
+.a-blue::after{background:linear-gradient(to right,#1a6fc4,#5ba4f5);}
+.a-green::after{background:linear-gradient(to right,#0f6e56,#1d9e75);}
+.a-purple::after{background:linear-gradient(to right,#534ab7,#7f77dd);}
+.ach-icon{font-size:30px;margin-bottom:9px;}
+.ach-title{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.ach-desc{font-size:11px;color:var(--text2);line-height:1.5;}
+.ach-year{font-family:'Cinzel',serif;font-size:20px;font-weight:900;color:rgba(212,175,55,0.22);margin-top:7px;}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.contact-list{display:flex;flex-direction:column;gap:12px;}
+.ct-item{display:flex;align-items:center;gap:12px;padding:13px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;transition:border-color .2s;text-decoration:none;}
+.ct-item:hover{border-color:var(--border-gold);}
+.ct-icon{width:36px;height:36px;border-radius:8px;background:rgba(212,175,55,0.08);border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.ct-lbl{font-size:9px;color:var(--text3);font-family:'Rajdhani',sans-serif;letter-spacing:1.5px;text-transform:uppercase;}
+.ct-val{font-size:13px;font-weight:600;color:var(--text);}
+.value-box{background:var(--bg-card);border:1px solid var(--border-gold);border-radius:13px;padding:22px;}
+.vb-title{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gold);margin-bottom:14px;text-transform:uppercase;}
+.vb-item{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text2);margin-bottom:8px;}
+.vb-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border-gold);padding:24px 52px;display:flex;justify-content:space-between;align-items:center;max-width:1260px;margin:0 auto;position:relative;z-index:1;}
+.ft-brand{font-family:'Cinzel',serif;font-size:13px;color:var(--gold);letter-spacing:2px;}
+.ft-copy{font-size:11px;color:var(--text3);font-family:'Rajdhani',sans-serif;}
+.ft-li{display:flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;border:1px solid var(--border-gold);background:transparent;color:var(--gold);font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;text-decoration:none;letter-spacing:1px;transition:all .2s;}
+.ft-li:hover{background:rgba(212,175,55,.1);}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
+  .skills-grid,.certs-grid,.ach-grid{grid-template-columns:1fr 1fr;}
+  .projects-grid{grid-template-columns:1fr;}
+  .wrap,.wrap-sm{padding:50px 22px;}
+  #hero{padding:80px 22px 40px;}
+  .hero-name span{font-size:44px;}
+  nav{padding:0 18px;}
+  .nav-links{display:none;}
+  footer{padding:18px 22px;flex-direction:column;gap:10px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="pts"></div>
+
+<nav>
+  <div class="nav-brand">G · A · S</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certs">Certifications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow"><div class="eyebrow-line"></div><div class="eyebrow-txt">Licensed Engineer — UAE 🇦🇪 &amp; Germany 🇩🇪</div></div>
+      <div class="hero-name">
+        <span>GASSEM</span>
+        <span>AL SALAMA</span>
+      </div>
+      <div class="hero-role"><div class="role-dash"></div><div class="role-txt">Infrastructure · Cloud · Security · ITSM</div></div>
+      <p class="hero-tagline">Licensed IT Engineer in the UAE 🇦🇪 and Germany 🇩🇪 — with 7+ years of enterprise experience in infrastructure, cloud computing, and system administration. Proven track record of 99% uptime and 80% workload reduction.</p>
+      <div class="hero-contact-row">
+        <div class="hc-item"><div class="hc-dot"></div>Dubai, UAE</div>
+        <div class="hc-item"><div class="hc-dot"></div>+971 56 874 1653</div>
+        <div class="hc-item"><div class="hc-dot"></div>jaasimalsalama@gmail.com</div>
+        <div class="hc-item"><div class="hc-dot"></div>linkedin.com/in/jaasim-alsalama</div>
+      </div>
+      <div class="hero-stats">
+        <div class="h-stat"><div class="h-stat-n">7+</div><div class="h-stat-l">Years Exp.</div></div>
+        <div class="h-stat"><div class="h-stat-n">99%</div><div class="h-stat-l">Uptime SLA</div></div>
+        <div class="h-stat"><div class="h-stat-n">2</div><div class="h-stat-l">Countries Licensed</div></div>
+        <div class="h-stat"><div class="h-stat-n">6</div><div class="h-stat-l">Certs 2026</div></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-p">View Projects</a>
+        <a href="#contact" class="btn-o">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="tech-box">
+        <div class="tech-lbl">Core Technologies & Tools</div>
+        <div class="tech-wrap">
+          <div class="tb c-azure"><div class="tb-dot" style="background:#5ba4f5"></div>Microsoft Azure</div>
+          <div class="tb c-aws"><div class="tb-dot" style="background:#ff9a00"></div>AWS (EC2·S3·IAM)</div>
+          <div class="tb c-cisco"><div class="tb-dot" style="background:#1ba0d7"></div>Cisco CCNA/CCNP</div>
+          <div class="tb c-win"><div class="tb-dot" style="background:#00adef"></div>Windows Server</div>
+          <div class="tb c-win"><div class="tb-dot" style="background:#00adef"></div>Active Directory</div>
+          <div class="tb c-vmw"><div class="tb-dot" style="background:#7a9fd4"></div>VMware vSphere</div>
+          <div class="tb c-win"><div class="tb-dot" style="background:#00adef"></div>Hyper-V</div>
+          <div class="tb c-veeam"><div class="tb-dot" style="background:#00b336"></div>Veeam Backup</div>
+          <div class="tb c-gold"><div class="tb-dot" style="background:var(--gold)"></div>SCCM / Endpoint</div>
+          <div class="tb c-pbi"><div class="tb-dot" style="background:#f2c811"></div>Power BI</div>
+          <div class="tb c-itsm"><div class="tb-dot" style="background:#7f77dd"></div>Jira / ServiceNow</div>
+          <div class="tb c-sec"><div class="tb-dot" style="background:#d85a30"></div>Palo Alto / Fortinet</div>
+          <div class="tb c-gold"><div class="tb-dot" style="background:var(--gold)"></div>ITIL / Agile</div>
+          <div class="tb c-vmw"><div class="tb-dot" style="background:#7a9fd4"></div>Node.js / APIs</div>
+        </div>
+      </div>
+      <div class="award-row">
+        <div class="award-card">
+          <div class="aw-icon">🇦🇪</div>
+          <div>
+            <div class="aw-label">Licensed Engineer</div>
+            <div class="aw-title">UAE — Certified IT Engineer</div>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="aw-icon">🇩🇪</div>
+          <div>
+            <div class="aw-label">Licensed Engineer</div>
+            <div class="aw-title">Germany — Certified IT Engineer</div>
+          </div>
+        </div>
+      </div>
+      <div class="award-row">
+        <div class="award-card">
+          <div class="aw-icon">🏆</div>
+          <div>
+            <div class="aw-label">Award · 2019</div>
+            <div class="aw-title">4th Place — Smart Mirror Project</div>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="aw-icon">🎖️</div>
+          <div>
+            <div class="aw-label">Certificate · 2024</div>
+            <div class="aw-title">Abu Dhabi Municipality GPS Project</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<div class="bg-alt">
+<section id="about" class="wrap fade-up">
+  <div class="divider"><div class="ln"></div><div class="diam"></div><h2>About Me</h2><div class="diam"></div><div class="ln r"></div></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I am a <strong style="color:var(--gold)">Professionally Licensed IT Engineer in both the UAE 🇦🇪 and Germany 🇩🇪</strong> — a rare dual-country accreditation that reflects the international scope of my expertise and qualifications.</p>
+      <p>Based in Dubai, UAE, with 7+ years of hands-on experience designing, deploying, and managing enterprise IT infrastructure. My expertise spans cloud platforms (Azure & AWS), enterprise networking (Cisco CCNA/CCNP), virtualization (VMware & Hyper-V), cybersecurity, and full-stack IT service management.</p>
+      <p>Throughout my career I have consistently delivered measurable results — from achieving 99% system uptime at Inbound LLC to leading the Abu Dhabi Municipality GPS Tracking Project serving 300+ government vehicles. I thrive in fast-paced, multi-site environments where I can blend deep technical skills with project leadership.</p>
+      <p>In 2026 I further strengthened my credentials with 6 LinkedIn Learning certifications covering CCNA, CCNP Enterprise, CompTIA Security+, Microsoft AZ-800 (Windows Server Hybrid), Atlassian ITSM, and IT Help Desk — totalling over 79 hours of structured training.</p>
+    </div>
+    <div class="info-stack">
+      <div class="info-card"><div class="ic-icon">📍</div><div><div class="ic-lbl">Location</div><div class="ic-val">Dubai, United Arab Emirates</div></div></div>
+      <div class="info-card" style="border-color:rgba(212,175,55,0.4);background:rgba(212,175,55,0.04);"><div class="ic-icon">🇦🇪</div><div><div class="ic-lbl">Licensed Engineer — UAE</div><div class="ic-val">Professionally Certified IT Engineer · United Arab Emirates</div></div></div>
+      <div class="info-card" style="border-color:rgba(212,175,55,0.4);background:rgba(212,175,55,0.04);"><div class="ic-icon">🇩🇪</div><div><div class="ic-lbl">Licensed Engineer — Germany</div><div class="ic-val">Professionally Certified IT Engineer · Federal Republic of Germany</div></div></div>
+      <div class="info-card"><div class="ic-icon">📞</div><div><div class="ic-lbl">Phone</div><div class="ic-val">+971 56 874 1653</div></div></div>
+      <div class="info-card"><div class="ic-icon">✉️</div><div><div class="ic-lbl">Email</div><div class="ic-val">jaasimalsalama@gmail.com</div></div></div>
+      <div class="info-card"><div class="ic-icon">🎓</div><div><div class="ic-lbl">Education</div><div class="ic-val">B.Sc. Informatics & Network Engineering, AIU 2021</div></div></div>
+      <div class="info-card"><div class="ic-icon">🌐</div><div><div class="ic-lbl">Languages</div><div class="ic-val">Arabic (Native) · English (Advanced) · German (Intermediate)</div></div></div>
+      <div class="info-card"><div class="ic-icon">⚡</div><div><div class="ic-lbl">Availability</div><div class="ic-val">Available Immediately · Dubai, UAE</div></div></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════ LICENSING BANNER ═══════════════ -->
+<div style="max-width:1260px;margin:0 auto;padding:0 52px 40px;">
+  <div style="background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(212,175,55,0.03));border:1px solid rgba(212,175,55,0.35);border-radius:16px;padding:28px 36px;display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
+    <div style="font-size:38px;flex-shrink:0;">🏛️</div>
+    <div style="flex:1;min-width:200px;">
+      <div style="font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:3px;color:rgba(212,175,55,0.6);text-transform:uppercase;margin-bottom:6px;">Professional Engineering License</div>
+      <div style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:4px;">Dual-Country Licensed IT Engineer</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.6;">Professionally accredited as a certified IT Engineer in both the <strong style="color:rgba(212,175,55,0.9)">United Arab Emirates 🇦🇪</strong> and <strong style="color:rgba(212,175,55,0.9)">Federal Republic of Germany 🇩🇪</strong> — an internationally recognised dual-country engineering accreditation reflecting world-class professional standards.</div>
+    </div>
+    <div style="display:flex;gap:14px;flex-shrink:0;flex-wrap:wrap;">
+      <div style="text-align:center;padding:16px 22px;background:rgba(0,0,0,0.2);border:1px solid rgba(212,175,55,0.3);border-radius:12px;">
+        <div style="font-size:28px;margin-bottom:4px;">🇦🇪</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1px;">UAE</div>
+        <div style="font-size:10px;color:var(--text3);font-family:'Rajdhani',sans-serif;">Licensed Engineer</div>
+      </div>
+      <div style="text-align:center;padding:16px 22px;background:rgba(0,0,0,0.2);border:1px solid rgba(212,175,55,0.3);border-radius:12px;">
+        <div style="font-size:28px;margin-bottom:4px;">🇩🇪</div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1px;">Germany</div>
+        <div style="font-size:10px;color:var(--text3);font-family:'Rajdhani',sans-serif;">Licensed Engineer</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ EXPERIENCE ═══════════════ -->
+<section id="experience" class="wrap fade-up">
+  <div class="divider"><div class="ln"></div><div class="diam"></div><h2>Work Experience</h2><div class="diam"></div><div class="ln r"></div></div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-header">
+        <div class="tl-role">Senior IT System Engineer (Part-Time)</div>
+        <div class="tl-period">Jan 2026 — Present</div>
+      </div>
+      <div class="tl-company">Emirates Tower Contracting & General · Abu Dhabi, UAE</div>
+      <div class="tl-bullets">
+        <div class="tl-bullet"><div class="tl-bdot"></div>Managing IT systems and infrastructure for 30+ users across 2 core business systems</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Administering user accounts, permissions, and Active Directory operations</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Overseeing property management system and ensuring data integrity</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Developing and automating operational reports and dashboards for management</div>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Active Directory</span><span class="tl-tag">Windows Server</span><span class="tl-tag">Automation</span><span class="tl-tag">Power BI</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-header">
+        <div class="tl-role">Senior IT & Operations Engineer (Contract)</div>
+        <div class="tl-period">Aug 2025 — Dec 2025</div>
+      </div>
+      <div class="tl-company">Inbound LLC · Dubai, UAE</div>
+      <div class="tl-bullets">
+        <div class="tl-bullet"><div class="tl-bdot"></div>Managed enterprise IT infrastructure supporting 100+ users and multi-site systems</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Designed and deployed cloud solutions on Azure and AWS, improving scalability by 40%</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Achieved 99% system uptime; built automation scripts reducing manual operations by 80%</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Developed Power BI dashboards improving reporting efficiency by 50%</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Led IT projects end-to-end including planning, deployment, and stakeholder communication</div>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Azure</span><span class="tl-tag">AWS</span><span class="tl-tag">Power BI</span><span class="tl-tag">Automation</span><span class="tl-tag">Node.js</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-header">
+        <div class="tl-role">System Engineer / ITSM Specialist</div>
+        <div class="tl-period">Dec 2021 — Jul 2025</div>
+      </div>
+      <div class="tl-company">Advanced Telematics Solution · Abu Dhabi, UAE</div>
+      <div class="tl-bullets">
+        <div class="tl-bullet"><div class="tl-bdot"></div>Administered Active Directory for 200+ users including GPO and access control</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Led Azure cloud migration reducing system downtime by 25% and improving response time by 30%</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Managed incident lifecycle reducing recurring issues by 35%; maintained 98% availability</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Managed vehicle tracking infrastructure for 300+ vehicles using Wialon platform</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Led Abu Dhabi Municipality GPS Tracking Project (2022–2025) — received Certificate of Appreciation</div>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Azure</span><span class="tl-tag">Active Directory</span><span class="tl-tag">ITSM</span><span class="tl-tag">Wialon GPS</span><span class="tl-tag">ITIL</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-header">
+        <div class="tl-role">IT Support – Networking</div>
+        <div class="tl-period">Jan 2019 — Sep 2021</div>
+      </div>
+      <div class="tl-company">Innovation for Systems Solutions · Damascus, Syria</div>
+      <div class="tl-bullets">
+        <div class="tl-bullet"><div class="tl-bdot"></div>Managed IT infrastructure for 300+ users across multiple sites</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Configured Cisco routers/switches improving network performance by 20%</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Administered VMware environments, reducing hardware costs by 25%</div>
+        <div class="tl-bullet"><div class="tl-bdot"></div>Maintained high-availability systems with 98% uptime</div>
+      </div>
+      <div class="tl-tags"><span class="tl-tag">Cisco</span><span class="tl-tag">VMware</span><span class="tl-tag">Networking</span><span class="tl-tag">Windows Server</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ SKILLS ═══════════════ -->
+<div class="bg-alt">
+<section id="skills" class="wrap fade-up">
+  <div class="divider"><div class="ln"></div><div class="diam"></div><h2>Technical Skills</h2><div class="diam"></div><div class="ln r"></div></div>
+  <div class="skills-grid">
+    <div class="sk-card sk-cloud">
+      <div class="sk-title">☁️ Cloud Platforms</div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Microsoft Azure</span><span>92%</span></div><div class="bar-bg"><div class="bar-fill" style="width:92%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>AWS (EC2, S3, IAM)</span><span>80%</span></div><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Cloud Migration & Design</span><span>88%</span></div><div class="bar-bg"><div class="bar-fill" style="width:88%"></div></div></div>
+    </div>
+    <div class="sk-card sk-net">
+      <div class="sk-title">🔗 Networking</div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Cisco CCNA / CCNP</span><span>93%</span></div><div class="bar-bg"><div class="bar-fill" style="width:93%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Palo Alto / Fortinet</span><span>78%</span></div><div class="bar-bg"><div class="bar-fill" style="width:78%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>VPN · DNS · DHCP · VLANs</span><span>90%</span></div><div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div></div>
+    </div>
+    <div class="sk-card sk-sys">
+      <div class="sk-title">⚙️ Systems & Virtualization</div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Windows Server / AD / GPO</span><span>94%</span></div><div class="bar-bg"><div class="bar-fill" style="width:94%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>VMware vSphere</span><span>85%</span></div><div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Hyper-V · Veeam · SCCM</span><span>88%</span></div><div class="bar-bg"><div class="bar-fill" style="width:88%"></div></div></div>
+    </div>
+    <div class="sk-card sk-data">
+      <div class="sk-title">📊 Data & Automation</div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Power BI / Zoho Analytics</span><span>85%</span></div><div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Node.js / APIs</span><span>75%</span></div><div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Reporting & Dashboards</span><span>88%</span></div><div class="bar-bg"><div class="bar-fill" style="width:88%"></div></div></div>
+    </div>
+    <div class="sk-card sk-sec">
+      <div class="sk-title">🔒 Security</div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>CompTIA Security+ (SY0-701)</span><span>85%</span></div><div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>IAM · System Hardening</span><span>82%</span></div><div class="bar-bg"><div class="bar-fill" style="width:82%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Endpoint & Patch Mgmt</span><span>88%</span></div><div class="bar-bg"><div class="bar-fill" style="width:88%"></div></div></div>
+    </div>
+    <div class="sk-card sk-lead">
+      <div class="sk-title">👥 ITSM & Leadership</div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>ITIL · Jira · ServiceNow</span><span>90%</span></div><div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>Project Management</span><span>87%</span></div><div class="bar-bg"><div class="bar-fill" style="width:87%"></div></div></div>
+      <div class="bar-wrap"><div class="bar-lbl"><span>L1/L2/L3 Support · SLA</span><span>95%</span></div><div class="bar-bg"><div class="bar-fill" style="width:95%"></div></div></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════ CERTIFICATIONS ═══════════════ -->
+<section id="certs" class="wrap fade-up">
+  <div class="divider"><div class="ln"></div><div class="diam"></div><h2>Certifications — 2026</h2><div class="diam"></div><div class="ln r"></div></div>
+  <div class="certs-grid">
+
+    <div class="cert-card cc-gold">
+      <div class="cert-head">
+        <div class="cert-logo cl-cisco">●●●</div>
+        <div><div class="cert-issuer">Cisco · LinkedIn Learning</div><div class="cert-name">CCNP Enterprise ENCOR v1.1 (350-401) Cert Prep</div></div>
+      </div>
+      <div class="cert-date">May 13, 2026 · 19h 54min</div>
+      <div class="cert-tags"><span class="cert-tag ct-gold">Enterprise Architecture</span><span class="cert-tag ct-gold">Virtualization</span><span class="cert-tag ct-gold">Advanced Routing</span></div>
+    </div>
+
+    <div class="cert-card cc-blue">
+      <div class="cert-head">
+        <div class="cert-logo cl-cisco">●●●</div>
+        <div><div class="cert-issuer">Cisco · LinkedIn Learning</div><div class="cert-name">CCNA v1.1 (200-301) Cert Prep</div></div>
+      </div>
+      <div class="cert-date">May 13, 2026 · 18h 22min</div>
+      <div class="cert-tags"><span class="cert-tag ct-blue">Cisco Routers</span><span class="cert-tag ct-blue">Network Security</span><span class="cert-tag ct-blue">Cisco IOS</span></div>
+    </div>
+
+    <div class="cert-card cc-azure">
+      <div class="cert-head">
+        <div class="cert-logo cl-ms">AZ-800</div>
+        <div><div class="cert-issuer">Microsoft Press · LinkedIn Learning</div><div class="cert-name">Windows Server Hybrid Core Infrastructure (AZ-800)</div></div>
+      </div>
+      <div class="cert-date">May 12, 2026 · 9h 28min</div>
+      <div class="cert-tags"><span class="cert-tag ct-azure">Windows Server</span><span class="cert-tag ct-azure">Microsoft Azure</span><span class="cert-tag ct-azure">Server Admin</span></div>
+    </div>
+
+    <div class="cert-card cc-red">
+      <div class="cert-head">
+        <div class="cert-logo cl-comptia">SEC+</div>
+        <div><div class="cert-issuer">CompTIA · Infosec · LinkedIn Learning</div><div class="cert-name">CompTIA Security+ (SY0-701) Cert Prep</div></div>
+      </div>
+      <div class="cert-date">May 12, 2026 · 9h 57min</div>
+      <div class="cert-tags"><span class="cert-tag ct-red">Security Monitoring</span><span class="cert-tag ct-red">Enterprise Security</span><span class="cert-tag ct-red">Threat Management</span></div>
+    </div>
+
+    <div class="cert-card cc-teal">
+      <div class="cert-head">
+        <div class="cert-logo cl-atlassian">▲</div>
+        <div><div class="cert-issuer">Atlassian · LinkedIn Learning</div><div class="cert-name">Atlassian ITSM Professional Certificate</div></div>
+      </div>
+      <div class="cert-date">May 13, 2026 · 5h 39min</div>
+      <div class="cert-tags"><span class="cert-tag ct-teal">IT Service Management</span><span class="cert-tag ct-teal">Change Management</span></div>
+    </div>
+
+    <div class="cert-card cc-purple">
+      <div class="cert-head">
+        <div class="cert-logo cl-linkedin">in</div>
+        <div><div class="cert-issuer">LinkedIn Learning</div><div class="cert-name">Advance Your Skills as an IT Help Desk Specialist</div></div>
+      </div>
+      <div class="cert-date">May 13, 2026 · 15h 53min</div>
+      <div class="cert-tags"><span class="cert-tag ct-purple">Hardware Troubleshooting</span><span class="cert-tag ct-purple">Help Desk Support</span><span class="cert-tag ct-purple">Software Troubleshooting</span></div>
+    </div>
+
+    <!-- summary spans full row col 1-2 -->
+    <div class="cert-card certs-summary cc-gold" style="grid-column:1/3;">
+      <div style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center;">
+        <div style="text-align:center;"><div class="big-n">79+</div><div class="big-l">Total Training Hours</div></div>
+        <div style="text-align:center;"><div class="big-n">6</div><div class="big-l">Certifications in 2026</div></div>
+        <div style="max-width:340px;">
+          <div class="big-s">Covering enterprise networking, cloud infrastructure, cybersecurity, Windows Server hybrid, ITSM, and IT support — all completed within LinkedIn Learning in 2026.</div>
+          <div class="cert-tags" style="justify-content:center;">
+            <span class="cert-tag ct-gold">Cisco</span><span class="cert-tag ct-gold">Microsoft</span><span class="cert-tag ct-gold">CompTIA</span><span class="cert-tag ct-gold">Atlassian</span><span class="cert-tag ct-gold">Security</span><span class="cert-tag ct-gold">ITSM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Courses from CV -->
+  <div style="margin-top:28px;background:var(--bg-card);border:1px solid var(--border);border-radius:13px;padding:22px;">
+    <div style="font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;">Additional Training & Courses</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+      <div class="tb c-gold"><div class="tb-dot" style="background:var(--gold)"></div>ITIL Foundation</div>
+      <div class="tb c-azure"><div class="tb-dot" style="background:#5ba4f5"></div>Azure Fundamentals AZ-900</div>
+      <div class="tb c-aws"><div class="tb-dot" style="background:#ff9a00"></div>AWS Cloud Fundamentals</div>
+      <div class="tb c-cisco"><div class="tb-dot" style="background:#1ba0d7"></div>Advanced Cisco Networking</div>
+      <div class="tb c-win"><div class="tb-dot" style="background:#00adef"></div>Active Directory & Group Policy</div>
+      <div class="tb c-itsm"><div class="tb-dot" style="background:#7f77dd"></div>Ticketing Systems (ITSM)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+<div class="bg-alt">
+<section id="projects" class="wrap fade-up">
+  <div class="divider"><div class="ln"></div><div class="diam"></div><h2>Projects & Success Stories</h2><div class="diam"></div><div class="ln r"></div></div>
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <div class="proj-num">01</div>
+      <div class="proj-icon">🛰️</div>
+      <div class="proj-title">Abu Dhabi Municipality GPS Tracking System</div>
+      <p class="proj-desc">Led full implementation and operations of a large-scale GPS tracking system using the Wialon platform for government fleet management across Abu Dhabi Municipality — overseeing 300+ vehicles for 3 years.</p>
+      <div class="proj-results">
+        <div class="pr-item"><div class="pr-dot"></div>Tracked and managed 300+ government vehicles in real-time</div>
+        <div class="pr-item"><div class="pr-dot"></div>Delivered for Abu Dhabi Municipality — received official Certificate of Appreciation (2024)</div>
+        <div class="pr-item"><div class="pr-dot"></div>Maintained 98%+ platform uptime across the full 3-year project lifecycle</div>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Wialon Platform</span><span class="proj-tag">GPS Tracking</span><span class="proj-tag">Government</span><span class="proj-tag">Fleet Mgmt</span></div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">02</div>
+      <div class="proj-icon">☁️</div>
+      <div class="proj-title">Enterprise Cloud Migration & Automation</div>
+      <p class="proj-desc">At Inbound LLC, designed and deployed cloud solutions on both Azure and AWS for a 100+ user enterprise, while building Node.js-based automation scripts to eliminate manual operations.</p>
+      <div class="proj-results">
+        <div class="pr-item"><div class="pr-dot"></div>Improved infrastructure scalability by 40% through cloud deployment</div>
+        <div class="pr-item"><div class="pr-dot"></div>Achieved 99% system uptime across all migrated services</div>
+        <div class="pr-item"><div class="pr-dot"></div>Reduced manual operations by 80% via automation scripts</div>
+        <div class="pr-item"><div class="pr-dot"></div>Power BI dashboards improved reporting efficiency by 50%</div>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Azure</span><span class="proj-tag">AWS</span><span class="proj-tag">Node.js</span><span class="proj-tag">Power BI</span><span class="proj-tag">Automation</span></div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">03</div>
+      <div class="proj-icon">🖥️</div>
+      <div class="proj-title">Azure Cloud Migration — Advanced Telematics</div>
+      <p class="proj-desc">Led a comprehensive Azure cloud migration for Advanced Telematics Solution, covering 200+ users and Active Directory, while simultaneously managing ITSM incident lifecycle and platform availability.</p>
+      <div class="proj-results">
+        <div class="pr-item"><div class="pr-dot"></div>Reduced system downtime by 25% post-migration</div>
+        <div class="pr-item"><div class="pr-dot"></div>Improved application response time by 30%</div>
+        <div class="pr-item"><div class="pr-dot"></div>Reduced recurring incident rate by 35% via structured ITSM processes</div>
+        <div class="pr-item"><div class="pr-dot"></div>Maintained 98% availability across all critical systems</div>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Azure</span><span class="proj-tag">Active Directory</span><span class="proj-tag">ITSM</span><span class="proj-tag">ITIL</span></div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">04</div>
+      <div class="proj-icon">⚡</div>
+      <div class="proj-title">Automated Reporting & Data Workflow System</div>
+      <p class="proj-desc">Designed and built automated data workflows using APIs and Node.js, eliminating manual reporting processes across multiple business units. Integrated with Power BI and Zoho Analytics for live executive dashboards.</p>
+      <div class="proj-results">
+        <div class="pr-item"><div class="pr-dot"></div>Eliminated manual reporting — saving hours of weekly effort</div>
+        <div class="pr-item"><div class="pr-dot"></div>Real-time dashboards deployed for C-level decision making</div>
+        <div class="pr-item"><div class="pr-dot"></div>Reporting efficiency improved by 50% (Inbound LLC benchmark)</div>
+      </div>
+      <div class="proj-tags"><span class="proj-tag">Node.js</span><span class="proj-tag">APIs</span><span class="proj-tag">Power BI</span><span class="proj-tag">Zoho Analytics</span><span class="proj-tag">Automation</span></div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════ ACHIEVEMENTS ═══════════════ -->
+<section id="achievements" class="wrap fade-up">
+  <div class="divider"><div class="ln"></div><div class="diam"></div><h2>Achievements & Awards</h2><div class="diam"></div><div class="ln r"></div></div>
+  <div class="ach-grid">
+    <div class="ach-card a-gold">
+      <div class="ach-icon">🇦🇪</div>
+      <div class="ach-title">Licensed Engineer — UAE</div>
+      <div class="ach-desc">Professionally certified IT Engineer in the United Arab Emirates</div>
+      <div class="ach-year">UAE</div>
+    </div>
+    <div class="ach-card a-gold">
+      <div class="ach-icon">🇩🇪</div>
+      <div class="ach-title">Licensed Engineer — Germany</div>
+      <div class="ach-desc">Professionally certified IT Engineer in the Federal Republic of Germany</div>
+      <div class="ach-year">DE</div>
+    </div>
+    <div class="ach-card a-blue">
+      <div class="ach-icon">🏆</div>
+      <div class="ach-title">4th Place — Smart Mirror</div>
+      <div class="ach-desc">National competition recognition for innovative Smart Mirror project</div>
+      <div class="ach-year">2019</div>
+    </div>
+    <div class="ach-card a-green">
+      <div class="ach-icon">🎖️</div>
+      <div class="ach-title">Certificate of Appreciation</div>
+      <div class="ach-desc">Abu Dhabi Municipality — GPS Tracking Project delivery (300+ vehicles)</div>
+      <div class="ach-year">2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<div class="bg-alt">
+<section id="contact" class="wrap fade-up">
+  <div class="divider"><div class="ln"></div><div class="diam"></div><h2>Contact & Availability</h2><div class="diam"></div><div class="ln r"></div></div>
+  <div class="contact-grid">
+    <div class="contact-list">
+      <a class="ct-item" href="tel:+971568741653">
+        <div class="ct-icon">📞</div><div><div class="ct-lbl">Phone</div><div class="ct-val">+971 56 874 1653</div></div>
+      </a>
+      <a class="ct-item" href="mailto:jaasimalsalama@gmail.com">
+        <div class="ct-icon">✉️</div><div><div class="ct-lbl">Email</div><div class="ct-val">jaasimalsalama@gmail.com</div></div>
+      </a>
+      <a class="ct-item" href="https://linkedin.com/in/jaasim-alsalama" target="_blank">
+        <div class="ct-icon" style="font-size:14px;font-weight:700;color:#0a66c2;">in</div><div><div class="ct-lbl">LinkedIn</div><div class="ct-val">linkedin.com/in/jaasim-alsalama</div></div>
+      </a>
+      <div class="ct-item">
+        <div class="ct-icon">📍</div><div><div class="ct-lbl">Location</div><div class="ct-val">Dubai, United Arab Emirates</div></div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-icon">⚡</div><div><div class="ct-lbl">Availability</div><div class="ct-val">Available Immediately · Open to UAE Opportunities</div></div>
+      </div>
+    </div>
+
+    <div class="value-box">
+      <div class="vb-title">What I Bring to Your Team</div>
+      <div class="vb-item"><div class="vb-dot"></div><strong style="color:rgba(212,175,55,0.9)">Dual-country licensed engineer</strong> — professionally certified in UAE 🇦🇪 and Germany 🇩🇪</div>
+      <div class="vb-item"><div class="vb-dot"></div>7+ years of enterprise IT experience across UAE — infrastructure, cloud, networking, security</div>
+      <div class="vb-item"><div class="vb-dot"></div>Proven impact: 99% uptime, 80% workload reduction, 40% scalability improvement</div>
+      <div class="vb-item"><div class="vb-dot"></div>6 fresh 2026 certifications — CCNP, CCNA, AZ-800, Security+, ITSM, Help Desk</div>
+      <div class="vb-item"><div class="vb-dot"></div>Government project experience — Abu Dhabi Municipality GPS system (300+ vehicles)</div>
+      <div class="vb-item"><div class="vb-dot"></div>Trilingual: Arabic (Native) · English (Advanced) · German (Intermediate)</div>
+      <div class="vb-item"><div class="vb-dot"></div>Available immediately — based in Dubai, UAE</div>
+      <div style="margin-top:18px;">
+        <a href="mailto:jaasimalsalama@gmail.com" class="btn-p" style="display:inline-block;">Send an Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+</main>
+
+<footer>
+  <div class="ft-brand">GASSEM AL SALAMA</div>
+  <div class="ft-copy">© 2026 · Senior IT Engineer · Dubai, UAE · Available Immediately</div>
+  <a href="https://linkedin.com/in/jaasim-alsalama" class="ft-li" target="_blank">
+    <span style="font-size:13px;font-weight:700;">in</span> LinkedIn Profile
+  </a>
+</footer>
+
+<script>
+// Particles
+const p=document.getElementById('pts');
+for(let i=0;i<28;i++){const d=document.createElement('div');d.className='particle';d.style.cssText=`left:${Math.random()*100}%;width:${Math.random()*2.5+1}px;height:${Math.random()*2.5+1}px;animation-duration:${Math.random()*18+14}s;animation-delay:${Math.random()*18}s;opacity:${Math.random()*0.4+0.1}`;p.appendChild(d);}
+// Scroll fade
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.08});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
