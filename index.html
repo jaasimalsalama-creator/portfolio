@@ -32,8 +32,8 @@ p{margin:0 0 10px}
 .track{width:100%;max-width:520px;height:auto;margin:0 0 18px;display:block}
 .role{font-size:1.15rem;color:var(--mute);margin:12px 0 18px;max-width:60ch}
 .status{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.95rem;margin-bottom:18px}
-.status span{display:inline-flex;align-items:center;gap:8px}
-.status span:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--acc)}
+.status span{display:inline-flex;align-items:flex-start;gap:8px}.status span:before{margin-top:.5em}
+.status span:before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--acc)}
 .contact{display:flex;flex-wrap:wrap;gap:10px}
 .contact a{padding:9px 16px;border:1px solid var(--acc);border-radius:6px;text-decoration:none;font-weight:600}
 .contact a:first-child{background:var(--acc);color:var(--bg)}
@@ -57,10 +57,17 @@ th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);verti
 th{color:var(--mute);font-weight:600}
 .note{color:var(--mute);font-size:.9rem;margin-top:10px}
 footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:var(--mute);font-size:.9rem}
+#lang{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:14px;z-index:20;display:flex;border:1px solid var(--acc);border-radius:6px;overflow:hidden;background:var(--bg)}
+#lang button{font:600 .85rem system-ui,sans-serif;padding:6px 12px;border:0;background:transparent;color:var(--acc);cursor:pointer}
+#lang button[aria-pressed="true"]{background:var(--acc);color:var(--bg)}
+#lang button:focus-visible{outline:2px solid var(--acc);outline-offset:-3px}
+.de{display:none}html[data-lang="de"] .de{display:block}html[data-lang="de"] .en{display:none}
 </style>
 </head>
 <body>
+<nav id="lang" aria-label="Language"><button data-l="en" aria-pressed="true">EN</button><button data-l="de" aria-pressed="false">DE</button></nav>
 <main>
+<div class="en" lang="en">
 <header class="hero">
 <svg class="track" viewBox="0 0 520 70" role="img" aria-label="Decorative GPS track">
 <polyline points="4,56 70,40 130,48 200,22 260,34 330,14 400,30 470,10 512,16" fill="none" stroke="var(--acc)" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round"/>
@@ -167,6 +174,122 @@ footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);color:v
 </ul>
 
 <footer>Driving licence class B, own car · mobile across Germany · jaasimalsalama@gmail.com</footer>
+</div>
+<div class="de" lang="de">
+<header class="hero">
+<svg class="track" viewBox="0 0 520 70" role="img" aria-label="Decorative GPS track">
+<polyline points="4,56 70,40 130,48 200,22 260,34 330,14 400,30 470,10 512,16" fill="none" stroke="var(--acc)" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round"/>
+<circle cx="4" cy="56" r="5" fill="var(--acc2)"/><circle cx="512" cy="16" r="6" fill="var(--acc)"/>
+</svg>
+<h1>Gassem Al Salamah</h1>
+<p class="role">IT-Engineer mit 4,5+ Jahren Erfahrung in Telematik, Backend-Integration und Windows-Infrastruktur. Ich verbinde Fahrzeuge, Geräte und Geschäftssysteme und automatisiere die manuelle Arbeit drumherum.</p>
+<div class="status"><span>Sofort verfügbar</span><span>Sachsen-Anhalt, Deutschland – umzugsbereit</span><span>Bereits in Deutschland, kein Visumverfahren nötig. Ein Aufenthaltstitel für Vollzeitbeschäftigung ist mit Arbeitsvertrag möglich</span></div>
+<div class="contact">
+<a href="mailto:jaasimalsalama@gmail.com">jaasimalsalama@gmail.com</a>
+<a href="tel:+491774721477">+49 177 4721477</a>
+<a href="https://www.linkedin.com/in/jaasim-alsalama-/" rel="noopener">LinkedIn</a>
+</div>
+</header>
+
+<h2>Was ich mache</h2>
+<p class="lead">Ich habe in drei verwandten Bereichen gearbeitet. Welcher passt, hängt von der Stelle ab.</p>
+<div class="focus">
+<div><h3>Backend und Integration</h3><p>REST-APIs und Middleware mit Node.js und Python, Token-Authentifizierung, SQL-Reporting, Power-BI- und Zoho-Dashboards.</p></div>
+<div><h3>Telematik und GPS</h3><p>Wialon-Projekte vom Flashen der Geräte bis zur Plattformintegration, Fleet-Reports und IoT-Datenflüsse (MQTT, TCP/UDP, CAN-Bus).</p></div>
+<div><h3>Systemadministration</h3><p>Windows Server, Active Directory, Microsoft 365, Hyper-V/VMware, Veeam, Monitoring sowie 2nd-/3rd-Level-Support.</p></div>
+</div>
+
+<h2>Berufserfahrung</h2>
+<div class="job">
+<h3>IT &amp; Operations Engineer – Inbound LLC</h3>
+<p class="meta">Aug 2025 – Jun 2026 · Dubai</p>
+<ul>
+<li>REST-APIs und Middleware (Node.js, Python) entwickelt, die Wialon mit Transport-Backends verbinden, inklusive Token-Authentifizierung, JSON-Verarbeitung und Fehlerbehandlung.</li>
+<li>Tägliche Fleet-Reports und Workflows mit Python, Node.js und SQL automatisiert. Manuelle Arbeit sank um 80 %, Reporting-Fehler entfielen.</li>
+<li>Power-BI- und Zoho-Analytics-Dashboards aus der Wialon-API und SQL-Datenbanken aufgebaut.</li>
+<li>IoT-Telemetrie (GPS, FMS, CAN-Bus, Kraftstoff, Fahrerverhalten) über MQTT/TCP/UDP analysiert.</li>
+<li>Multi-Site-IT für 100+ Nutzer betreut: Windows Server, Active Directory, Microsoft 365, ITIL-basierte Incident- und Change-Prozesse, 2nd-/3rd-Level-Support.</li>
+</ul>
+</div>
+<div class="job">
+<h3>System Engineer – Advance Telematics Solutions LLC</h3>
+<p class="meta">Dez 2021 – Jun 2025 · Abu Dhabi</p>
+<ul>
+<li>Die API-Integration zwischen Transport-Backends und Wialon (REST, Token-Authentifizierung, Echtzeit-Sync) für 300+ Fahrzeuge im GPS-Projekt der Stadtverwaltung Abu Dhabi geleitet.</li>
+<li>Daten-Pipelines für GPS-, CAN-Bus- und J1939-Sensordaten sowie Geofencing-Events mit MQTT und TCP/UDP gebaut.</li>
+<li>200+ Teltonika-Tracker sowie Queclink-, Ruptela- und Concox-Geräte in Betrieb genommen: Flashing, Provisioning, Troubleshooting, Fernwartung.</li>
+<li>Active Directory für 200+ Nutzer verwaltet, inklusive GPOs und Zugriffskontrolle, sowie Windows-Server- und Linux-Umgebungen auf VMware betrieben.</li>
+</ul>
+</div>
+
+<h2>Ausgewählte Projekte</h2>
+<div class="proj"><h3>GPS-Flottenprojekt, Stadtverwaltung Abu Dhabi</h3><p class="meta">Advance Telematics Solutions LLC (Auftragnehmer für das Tracking- und Transportsystem) · 2022 – 2025</p>
+<p>Echtzeit-Tracking für 300+ Fahrzeuge auf Wialon, mit Backend-Integration, Geräte-Rollout, Reports und einem Zoho-IoT-Dashboard zur Flottenüberwachung und -steuerung.</p></div>
+<div class="proj"><h3>Reporting-Automatisierung</h3><p class="meta">Inbound LLC · 2025 – 2026</p>
+<p>Python-/Node.js-/SQL-Pipelines für Power BI und Zoho Analytics. Sie ersetzten manuelle Tagesreports und senkten den manuellen Aufwand um 80 %.</p></div>
+<div class="proj"><h3>Smart Mirror (IoT)</h3><p class="meta">Universitätsprojekt · 2019</p>
+<p>4. Platz in der Kategorie Universitäten in Damaskus beim Wettbewerb „Tamayoz“, organisiert von der Syrian Computer Society, der Palästinensischen Studentenliga und dem ICT Incubator. Die arabische Urkunde liegt mit englischer und deutscher Übersetzung vor.</p></div>
+
+<h2>Auszeichnungen</h2>
+<p class="note">Die Auszeichnungen von Advance Telematics Solutions stammen von meinem Arbeitgeber, in Anerkennung meiner Arbeit am Projekt der Stadtverwaltung Abu Dhabi.</p>
+<ul>
+<li><strong>Engagement Champion Award</strong>, Advance Telematics Solutions LLC, Juli 2024: für aktives und positives Engagement im Job.</li>
+<li><strong>Anerkennungsurkunde</strong>, Advance Telematics Solutions LLC, Juli 2024: für herausragende Leistung und Einsatz.</li>
+<li><strong>Anerkennungsurkunde</strong>, Advance Telematics Solutions LLC, Januar 2023: für herausragende Leistung und Einsatz.</li>
+<li><strong>4. Platz</strong>, Wettbewerb „Tamayoz“, Kategorie Universitäten, Damaskus (2019): Smart-Mirror-Projekt.</li>
+<li><strong>Anerkennungsurkunde</strong>, 2. Wettbewerb für IT-Projekte 2019, ITE-HeadStart, Universität Damaskus.</li>
+</ul>
+
+<h2>Fähigkeiten</h2>
+<dl class="sk">
+<dt>Backend</dt><dd>Node.js, JavaScript (ES6+), Python, Express.js, REST-APIs, Webhooks, JSON/XML, JWT und API-Keys, Postman, Swagger; TypeScript (Grundkenntnisse)</dd>
+<dt>Daten</dt><dd>SQL (MySQL, PostgreSQL, MS SQL), Query-Optimierung, Reporting-Automatisierung, Power BI, Zoho Analytics und Creator, ETL-Grundlagen</dd>
+<dt>IoT und Telematik</dt><dd>Wialon API (Hosting/Local) und SDK, Nimbus, GPS-Trace, Hecterra, MQTT, TCP/UDP, CAN-Bus, FMS, J1939, J1708, Geofencing, Kraftstoff- und Eco-Driving-Analyse</dd>
+<dt>Geräte</dt><dd>Teltonika FMB120/FMC130, Queclink GV, Ruptela, Concox: Flashing, Provisioning, Konfiguration, Fernwartung</dd>
+<dt>Infrastruktur</dt><dd>Windows Server 2019/2022, Active Directory, GPO, Microsoft 365, Entra ID, Exchange Online, Azure, Hyper-V, VMware, Veeam, Linux (Ubuntu, CentOS), LAN/WAN, VPN, VLAN</dd>
+<dt>Tools und Prozesse</dt><dd>Git/GitHub, Jira, ServiceNow, PRTG, Zabbix, Docker (Grundkenntnisse), ITIL v4, Agile/Scrum</dd>
+<dt>Arbeitsweise</dt><dd>Analytisch, systematische Fehlersuche, technische Dokumentation, Kundenkommunikation</dd>
+</dl>
+
+<h2>Weiterbildung und Zertifikate</h2>
+<div class="tw"><table>
+<thead><tr><th>Kurs</th><th>Anbieter</th><th>Abgeschlossen</th></tr></thead>
+<tbody>
+<tr><td>Cisco CCNA v1.1 (200-301) Cert Prep</td><td>LinkedIn Learning</td><td>Mai 2026</td></tr>
+<tr><td>Cisco CCNP Enterprise ENCOR v1.1 (350-401) Cert Prep</td><td>LinkedIn Learning</td><td>Mai 2026</td></tr>
+<tr><td>Microsoft Windows Server Hybrid Core Infrastructure Administrator Associate (AZ-800) Cert Prep</td><td>LinkedIn Learning</td><td>Mai 2026</td></tr>
+<tr><td>CompTIA Security+ (SY0-701) Cert Prep by Infosec</td><td>LinkedIn Learning</td><td>Mai 2026</td></tr>
+<tr><td>Atlassian IT Service Management (ITSM) Professional Certificate</td><td>LinkedIn Learning</td><td>Mai 2026</td></tr>
+<tr><td>Advance Your Skills as an IT Help Desk Specialist</td><td>LinkedIn Learning</td><td>Mai 2026</td></tr>
+<tr><td>Windows 10: Manage and Maintain Windows 10</td><td>LinkedIn Learning</td><td>Mai 2026</td></tr>
+<tr><td>IT Service Desk: Customer Service Fundamentals</td><td>LinkedIn Learning</td><td>Mai 2026</td></tr>
+<tr><td>Customer Service: Problem-Solving and Troubleshooting</td><td>LinkedIn Learning</td><td>Mai 2026</td></tr>
+<tr><td>Professional MWN Systems: Monitoring, Windows und Systeme (30 Std.)</td><td>IDEA</td><td>Dez 2020</td></tr>
+<tr><td>Android Essentials</td><td>Syrian Comsats Comstech IT Center</td><td>Mai 2019</td></tr>
+<tr><td>ITIL Foundation</td><td>–</td><td>–</td></tr>
+</tbody></table></div>
+<p class="note">Die LinkedIn-Learning-Einträge sind Kursabschlusszertifikate. Die Kurse von Cisco, Microsoft und CompTIA bereiten auf die jeweiligen Prüfungen vor.</p>
+
+<h2>Ausbildung</h2>
+<div class="job"><h3>B.Sc. Informatik und Netzwerktechnik</h3><p class="meta">2016 – 2021 · Arab International University, Syrien</p></div>
+<div class="job"><h3>Diplom in Informationstechnologie und Informatik</h3><p class="meta">2014 – 2016 · Technical Institute, Syrien</p></div>
+
+<h2>Sprachen</h2>
+<ul>
+<li>Arabisch: Muttersprache</li>
+<li>Englisch: C1, verhandlungssicher</li>
+<li>Deutsch: A2, Alltagskonversation; B1-Prüfung für Oktober 2026 geplant</li>
+</ul>
+
+<footer>Führerschein Klasse B, eigener PKW · deutschlandweit mobil · jaasimalsalama@gmail.com</footer>
+</div>
 </main>
+<script>
+(function(){var h=document.documentElement,l;try{l=localStorage.getItem("lang")}catch(e){}
+if(l!=="de"&&l!=="en")l=((navigator.language||"en").toLowerCase().indexOf("de")===0)?"de":"en";
+var bs=document.querySelectorAll("#lang button");
+function set(x){h.setAttribute("data-lang",x);h.lang=x;bs.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===x)});try{localStorage.setItem("lang",x)}catch(e){}}
+bs.forEach(function(b){b.onclick=function(){set(b.dataset.l)}});set(l);})();
+</script>
 </body>
 </html>
